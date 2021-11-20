@@ -1,0 +1,40 @@
+---
+kind: pipeline
+type: kubernetes
+name: build
+steps:
+  - name: docker-build-publish
+    image: plugins/docker
+    settings:
+      repo: registry.andredasilva.dev/hub.andasilva.ch
+      tags: main
+      registry: https://registry.andredasilva.dev
+      username:
+        from_secret: registry-username
+      password:
+        from_secret: registry-password
+trigger:
+  branch:
+    - main
+
+---
+kind: pipeline
+type: ssh
+name: update-pod
+
+server:
+  host:
+    from_secret: ssh-host
+  user:
+    from_secret: ssh-username
+  ssh_key:
+    from_secret: ssh_key
+steps:
+  - name: restart-pod
+    commands:
+      - kubectl delete --all pods --namespace=hub
+depends_on:
+  - build
+trigger:
+  branch:
+    - main

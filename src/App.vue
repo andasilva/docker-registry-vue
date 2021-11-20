@@ -1,5 +1,12 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <router-view/>
-  </div>
+  </v-app>
 </template>
+
+
+<style>
+:root {
+  --primary-color: #1976d2
+}
+</style>

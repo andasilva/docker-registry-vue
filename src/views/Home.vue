@@ -1,58 +1,36 @@
 <template>
   <v-app>
-    <v-app-bar
-        app
-        color="primary"
-        dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-            alt="Vuetify Logo"
-            class="shrink mr-2"
-            contain
-            src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-            transition="scale-transition"
-            width="40"
-        />
-
-        <v-img
-            alt="Vuetify Name"
-            class="shrink mt-1 hidden-sm-and-down"
-            contain
-            min-width="100"
-            src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-            width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
-      </div>
-    </v-app-bar>
-
+    <MenuHeader/>
     <v-main>
-      <HelloWorld/>
+      <v-breadcrumbs :items="items" divider="-"/>
+      <v-divider></v-divider>
+      <RegistryList/>
     </v-main>
   </v-app>
 
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import MenuHeader from "@/components/MenuHeader";
+import RegistryList from "@/components/RegistryList";
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
-  }
+  components: {RegistryList, MenuHeader},
+  data: () => ({
+    items: [
+      {
+        text: 'Repositories',
+        disabled: false,
+        href: '/',
+      },
+    ],
+  }),
 }
 </script>
 <style>
-#nav a{
+#nav a {
   color: white;
 }
+
 </style>

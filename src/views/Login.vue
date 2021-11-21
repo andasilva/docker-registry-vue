@@ -115,6 +115,8 @@ export default {
 
   #form-container {
     padding: 100px;
+    min-height: 70vh;
+    justify-content: center;
   }
 }
 

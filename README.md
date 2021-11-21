@@ -1,24 +1,4 @@
 # docker-registry-vue
+<img width="1084" alt="image" src="https://user-images.githubusercontent.com/26145202/142769191-464c8375-087d-4324-b3e0-7cca99603be1.png">
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+A simple UI interface to display a list of images of your private registry.

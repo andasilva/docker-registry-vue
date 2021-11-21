@@ -28,7 +28,7 @@ server:
   user:
     from_secret: ssh-username
   ssh_key:
-    from_secret: ssh_key
+    from_secret: ssh-key
 steps:
   - name: restart-pod
     commands:

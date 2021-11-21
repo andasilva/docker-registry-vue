@@ -84,6 +84,8 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 60px 0;
+  min-height: 70vh;
+  justify-content: center;
 }
 
 #form-title {
@@ -115,8 +117,7 @@ export default {
 
   #form-container {
     padding: 100px;
-    min-height: 70vh;
-    justify-content: center;
+    justify-content: unset;
   }
 }
 

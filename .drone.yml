@@ -19,20 +19,22 @@ trigger:
 
 ---
 kind: pipeline
-type: ssh
+type: kubernetes
 name: update-pod
-
-server:
-  host:
-    from_secret: ssh-host
-  user:
-    from_secret: ssh-username
-  ssh_key:
-    from_secret: ssh-key
 steps:
   - name: restart-pod
-    commands:
-      - kubectl delete --all pods --namespace=hub
+    image: appleboy/drone-ssh
+    settings:
+      host:
+        from_secret: ssh-host
+      username:
+        from_secret: ssh-username
+      port:
+        from_secret: ssh-port
+      key:
+        from_secret: ssh-key
+      script:
+        - kubectl delete --all pods --namespace=registry
 depends_on:
   - build
 trigger:
